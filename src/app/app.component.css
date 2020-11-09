@@ -1,0 +1,50 @@
+mat-toolbar {
+  height: 80px;
+}
+/*datePakier */
+#container {
+  visibility: hidden;
+}
+
+#loader {
+color: #008cff;
+height: 40px;
+width: 30%;
+position: absolute;
+top: 45%;
+left: 45%;
+}
+
+#element {
+  display: block;
+  height: 350px;
+}
+
+#wrapper {
+  width: 250px;
+  margin: 0 auto;
+}
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+  margin: 10px;
+}
+
+.example-full-width {
+  width: 50%;
+  font-size: 15px;
+}
+
+
+.newsSearch {
+  margin: 10px;
+  width: 25%;
+  height: 35px;
+  font-size: 15px;
+}
+
+.customCSS {
+  margin: 10px;
+  width: 50%; 
+}

@@ -1,0 +1,35 @@
+<mat-toolbar>
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>Top Trendings News Website</span>
+  <div class="newsSearch">
+    <div class="row">
+      <form class="example-form">
+        <mat-form-field class="example-full-width">
+          <mat-label>Search ...</mat-label>
+          <input matInput #InputSearchValue>
+        </mat-form-field>
+        <ejs-daterangepicker #ejDateRangePicker
+                             cssClass='customCSS'
+                             placeholder='Select a range'
+                             format='yyyy-MM-dd'
+                             (change)="onchange($event)"
+                            >
+        </ejs-daterangepicker>
+        <button mat-raised-button
+                color="primary"
+                type="button"
+                (click)="onGetNews()">Primary</button>
+      </form>
+      </div>
+    </div>
+</mat-toolbar>
+
+<div class="topNews" *ngIf=status>
+  <app-top-news [topNews]=response
+                [datastatus]=status ></app-top-news>
+</div>
+
+
+

@@ -1,0 +1,52 @@
+<ejs-grid [dataSource]="topNews.articles"
+          [allowPaging]="true" [pageSettings]='pageSettings' allowSorting='true'
+          height=390>
+  <e-columns>
+      <e-column headerText='Image' width=200>
+        <ng-template #template let-data>
+          <div class="image">
+            <img src={{data.urlToImage}} height="100px">
+          </div>
+      </ng-template>
+      </e-column>
+      <e-column field='publishedAt' headerText='Published' type=date format='yyyy-MM-dd hh:mm:ss'></e-column>
+      <e-column field='source.name'  headerText='Name'></e-column>
+      <e-column field='author' headerText='Author'></e-column>
+      <e-column field='title' headerText='Title' clipMode='EllipsisWithTooltip'></e-column>
+      <!--<e-column field='description' headerText='Description' clipMode='EllipsisWithTooltip'></e-column>-->
+      <e-column field='' headerText='Details'>
+        <ng-template #template let-data>
+            <button cssClass="e-info" ejs-button
+                    id="targetButton"
+                    (click)="onOpenDialog(data)">
+                    Detials</button>
+
+        </ng-template>
+      </e-column>
+  </e-columns>
+</ejs-grid>
+<div #container class='root-container'>
+  <ejs-dialog id='dialog' #ejDialog
+              width='50%'
+              [visible]='false'
+              height=80%
+              allowDragging='true'
+              enableResize='true'
+              showCloseIcon='true'
+              [target]='targetElement'
+              [animationSettings]='dialogAnimation'
+              [closeOnEscape]='closeOnEscape'>
+    <ng-template #content>
+     <mat-card class="example-card">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title>{{inf?.title}}</mat-card-title>
+          <mat-card-subtitle>{{inf?.author}}</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image src={{inf?.urlToImage}} alt="Photo of a Shiba Inu">
+        <mat-card-content>
+              {{inf?.description}}
+        </mat-card-content>
+      </mat-card>
+    </ng-template>
+  </ejs-dialog></div>
